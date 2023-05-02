@@ -1,0 +1,51 @@
+---
+title: Freerk Zakfeld
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <meta
+      name="description"
+      key="description"
+      content="Freerk's personal website"
+    />
+    <meta name="generator" content="{{ eleventy['generator'] }}" />
+    <link rel="icon" href="/static/favicon.ico" />
+    <link rel="icon" sizes="16x16" href="/static/favicon-16x16.png" />
+    <link rel="icon" sizes="32x32" href="/static/favicon-32x32.png" />
+  </head>
+  <body class="dark:bg-gray-900 dark:text-white">
+    <div class="mx-auto px-4 max-w-screen-sm">
+      <div class="py-6 flex justify-between">
+        <div>
+          <span class="font-bold text-xl">
+            <a href="/"> Freerk Zakfeld </a>
+          </span>
+        </div>
+        <div class="grid gap-4 content-center text-sm">
+          <!-- <div class="font-semibold">
+            <a href="/blog/"> Blog </a>
+          </div> -->
+        </div>
+      </div>
+      {{ content | safe }}
+      <div class="py-8 text-sm flex flex-wrap gap-3 dark:text-gray-500">
+        <div>
+          <a href="/privacy-policy/"> Privacy Policy </a>
+        </div>
+        <div>
+          <a href="/legal-notice/"> Legal Notice </a>
+        </div>
+        <!-- <div>
+          <button onclick="window.toggleTheme()">Toggle theme</button>
+        </div> -->
+      </div>
+    </div>
+  </body>
+</html>

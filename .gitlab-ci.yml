@@ -1,0 +1,33 @@
+stages:
+  - build
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+build_site:
+  image: node:18
+  stage: build
+  script:
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - dist
+  only:
+    - main
+
+deploy_site:
+  stage: deploy
+  image: alpine:3.16
+  only:
+    - main
+  before_script:
+    - apk update && apk add openssh-client rsync
+    - eval $(ssh-agent -s)
+    - mkdir ~/.ssh
+    - echo "$DEPLOYMENT_HOST_KEY" > ~/.ssh/known_hosts
+    - echo "$DEPLOYMENT_PRIVATE_KEY" | ssh-add -
+  script:
+    - rsync -aqvz --delete --no-perms --no-owner --progress dist/ $DEPLOYMENT_USER@$DEPLOYMENT_HOST:$DEPLOYMENT_PATH

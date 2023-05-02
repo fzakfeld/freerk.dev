@@ -1,0 +1,32 @@
+{
+  "name": "freerk.dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:html": "npx @11ty/eleventy",
+    "build:css": "tailwindcss -i ./src/css/main.css -o ./dist/css/main.css",
+    "build": "npm run build:html && npm run build:css",
+    "dev:html": "eleventy --serve",
+    "dev:css": "tailwindcss -i ./src/css/main.css -o ./dist/css/main.css --watch",
+    "dev": "npm run dev:html & npm run dev:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/fzakfeld/freerk.dev.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/fzakfeld/freerk.dev/issues"
+  },
+  "homepage": "https://gitlab.com/fzakfeld/freerk.dev#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0-canary.4",
+    "@11ty/eleventy-plugin-vite": "^1.0.0",
+    "@tailwindcss/typography": "^0.5.2",
+    "html-minifier": "^4.0.0",
+    "tailwindcss": "^3.1.4"
+  }
+}
